@@ -46,6 +46,12 @@ EXTRA_OECONF = "\
     --disable-test-dependency-checks \
 "
 
+# Explicitly use older version of host GCC for building as the default on
+# Ubuntu 24.04.
+BUILD_CC = "gcc-11"
+BUILD_CXX = "g++-11"
+BUILD_LD = "g++-11"
+
 do_configure:prepend () {
     # upgrade m4 macros in source tree
     libtoolize --force --copy --install
